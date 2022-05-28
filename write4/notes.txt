@@ -1,0 +1,10 @@
+like the previous challenges, the buffer is 0x20 bytes long with a large overflow
+according to ROPgadget, a chain can be created to put the string 'flag.txt'
+in the .data section
+this is done by using the mov [r14], r15 ; ret gadget
+where r14 is the destination of the string and r15 is 8 bytes of the string
+since 'flag.txt' already has 8 bytes, we need an extra 8 bytes of '\x00' for the
+null-terminated string -> 'flag.txt\x00\x00\x00\x00\x00\x00\x00\x00'
+so we have to do the move twice, first for the first 8 bytes, and a second
+for the last 8 bytes
+then we put the location of the string into rdi and call print_file

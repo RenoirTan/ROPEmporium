@@ -1,0 +1,4 @@
+buffer is 32 bytes
+so rip is 40 bytes away
+however doing b"A"*40 + pwn.p64(ret2win) doesn't suffice because of some movaps issue
+but adding a ret gadget before pwn.p64(ret2win) fixes it

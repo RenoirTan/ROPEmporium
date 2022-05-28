@@ -1,0 +1,1 @@
+using rabin2 -z ./split, you can find the virtual address of '/bin/cat flag.txt'

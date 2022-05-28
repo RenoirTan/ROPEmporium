@@ -1,2 +1,5 @@
 # ROPEmporium
-longer than pw essay
+
+Solutions and writeups for ROPEmporium.
+
+Only doing x86_64 for now...
