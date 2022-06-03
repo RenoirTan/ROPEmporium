@@ -40,7 +40,6 @@ continue
 # RUNPATH:  b'.'
 
 io = start()
-io.clean()
 
 DATA = 0x601028
 RET = p64(0x400295) # ret
