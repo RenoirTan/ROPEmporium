@@ -1,0 +1,25 @@
+0000000000400628 <questionableGadgets>:
+  400628:       d7                      xlat   BYTE PTR ds:[rbx]
+  400629:       c3                      ret    
+  40062a:       5a                      pop    rdx
+  40062b:       59                      pop    rcx
+  40062c:       48 81 c1 f2 3e 00 00    add    rcx,0x3ef2
+  400633:       c4 e2 e8 f7 d9          bextr  rbx,rcx,rdx
+  400638:       c3                      ret    
+  400639:       aa                      stos   BYTE PTR es:[rdi],al
+  40063a:       c3                      ret    
+  40063b:       0f 1f 44 00 00          nop    DWORD PTR [rax+rax*1+0x0]
+
+must subtract 0x3ef2 from target rcx
+
+xlatb -> al = *(rbx + al)
+stosb -> *rdi = al; rdi++
+bextr rbx, rcx, rdx -> extract bits from rcx into rbx, starting from index 7:0 rdx for maximum length 15:8 rdx
+
+18  0x00000df0    0x8 0x00600df0    0x8 -rw- .init_array
+19  0x00000df8    0x8 0x00600df8    0x8 -rw- .fini_array
+20  0x00000e00  0x1f0 0x00600e00  0x1f0 -rw- .dynamic
+21  0x00000ff0   0x10 0x00600ff0   0x10 -rw- .got
+22  0x00001000   0x28 0x00601000   0x28 -rw- .got.plt
+23  0x00001028   0x10 0x00601028   0x10 -rw- .data
+24  0x00001038    0x0 0x00601038    0x8 -rw- .bss
