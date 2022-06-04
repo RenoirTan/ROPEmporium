@@ -1,0 +1,5 @@
+no execute enabled
+actual rop chain has 256 bytes
+buffer overflow has 64 bytes (24 bytes leftover)
+
+rop chain gets sent to somewhere on stack (location given to us by program)
