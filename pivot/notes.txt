@@ -3,3 +3,17 @@ actual rop chain has 256 bytes
 buffer overflow has 64 bytes (24 bytes leftover)
 
 rop chain gets sent to somewhere on stack (location given to us by program)
+
+00000000004009bb <usefulGadgets>:
+  4009bb:       58                      pop    rax
+  4009bc:       c3                      ret    
+  4009bd:       48 94                   xchg   rsp,rax
+  4009bf:       c3                      ret    
+  4009c0:       48 8b 00                mov    rax,QWORD PTR [rax]
+  4009c3:       c3                      ret    
+  4009c4:       48 01 e8                add    rax,rbp
+  4009c7:       c3                      ret    
+  4009c8:       0f 1f 84 00 00 00 00    nop    DWORD PTR [rax+rax*1+0x0]
+  4009cf:       00
+
+400a32 pop r15 ret

