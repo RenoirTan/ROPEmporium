@@ -1,0 +1,3 @@
+use the stuff in __libc_csu_init to our advantage
+move arguments into rdi, rsi and rdx
+call ret2win (nothing special here)
