@@ -2,7 +2,7 @@
 
 Solutions and writeups for ROPEmporium.
 
-Only doing x86_64 for now...
+Only doing x86 (32-, 64-bit) for now...
 
 ## Notes
 
